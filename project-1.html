@@ -211,7 +211,6 @@
                     <h2>Key Features</h2>
                     <ul>
                         <li>Multi-layer security architecture with next-gen firewalls</li>
-                        <li>Hybrid cloud integration with AWS Direct Connect</li>
                         <li>SD-WAN implementation for optimized traffic routing</li>
                     </ul>
                 </div>
@@ -243,58 +242,13 @@
 
         <div class="text-center">
             <a href="index.html" class="back-button">
-                <i class="fas fa-arrow-left"></i> Back to Portfolio
+                <i class="fas fa-arrow-left"></i> Back to Home
             </a>
         </div>
     </div>
 
     <script>
-        document.querySelectorAll('.gallery-image').forEach(image => {
-            image.addEventListener('click', () => {
-                const overlay = document.createElement('div');
-                overlay.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100vw;
-                    height: 100vh;
-                    background-color: rgba(0,0,0,0.9);
-                    z-index: 1000;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    cursor: zoom-out;
-                    animation: fadeIn 0.3s ease;
-                `;
-                
-                const enlargedImg = new Image();
-                enlargedImg.src = image.src;
-                enlargedImg.style.cssText = `
-                    max-width: 90vw;
-                    max-height: 90vh;
-                    object-fit: contain;
-                    border-radius: 10px;
-                    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-                `;
-                
-                const style = document.createElement('style');
-                style.textContent = `
-                    @keyframes fadeIn {
-                        from { opacity: 0; }
-                        to { opacity: 1; }
-                    }
-                `;
-                document.head.appendChild(style);
-                
-                overlay.appendChild(enlargedImg);
-                document.body.appendChild(overlay);
-
-                overlay.addEventListener('click', () => {
-                    overlay.style.animation = 'fadeOut 0.3s ease';
-                    overlay.addEventListener('animationend', () => overlay.remove());
-                });
-            });
-        });
+      
     </script>
 </body>
 </html>
