@@ -39,6 +39,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo {
@@ -51,10 +52,12 @@
         nav ul {
             display: flex;
             list-style: none;
+            flex-wrap: wrap;
         }
 
         nav ul li {
-            margin-left: 30px;
+            margin-left: 20px;
+            margin-bottom: 10px;
         }
 
         nav ul li a {
@@ -66,6 +69,14 @@
 
         nav ul li a:hover {
             color: #3498db;
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Main Content */
@@ -80,7 +91,7 @@
         .container {
             max-width: 1000px;
             width: 100%;
-            padding: 40px;
+            padding: 30px 20px;
             background-color: rgba(91, 91, 155, 0.9);
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -89,19 +100,20 @@
 
         .container h1 {
             color: #fff;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 20px;
         }
         
         .tagline {
             color: #e0e0e0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 30px;
+            padding: 0 10px;
         }
 
         .service-list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 40px;
         }
@@ -121,25 +133,25 @@
         }
 
         .service-item i {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #3498db;
             margin-bottom: 20px;
         }
 
         .service-item h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 10px;
         }
 
         .service-item p {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #555;
         }
 
         .cta-button {
             display: inline-block;
             margin-top: 40px;
-            padding: 15px 30px;
+            padding: 12px 25px;
             background-color: #3498db;
             color: white;
             text-decoration: none;
@@ -158,20 +170,21 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
 
         .social-link {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background-color: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #555;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             transition: 0.3s ease;
         }
 
@@ -202,18 +215,25 @@
         .footer-content {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
             margin-bottom: 20px;
         }
 
         .footer-section h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
             display: inline-block;
         }
 
         .footer-section p {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #ccc;
         }
 
@@ -222,13 +242,14 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
             color: #ccc;
             text-decoration: none;
             transition: 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
@@ -236,16 +257,97 @@
         }
 
         .copyright {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #aaa;
         }
 
         .address {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #bbb;
             margin-top: 15px;
             max-width: 600px;
             margin: 15px auto 0;
+            padding: 0 15px;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .header-container {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul {
+                justify-content: center;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+
+            .container {
+                padding: 25px 15px;
+            }
+
+            .container h1 {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-section {
+                flex: 100%;
+                text-align: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container h1 {
+                font-size: 1.6rem;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .service-item {
+                padding: 15px;
+            }
+            
+            .service-item i {
+                font-size: 2rem;
+            }
+            
+            .service-item h3 {
+                font-size: 1.2rem;
+            }
+            
+            .service-item p {
+                font-size: 0.9rem;
+            }
+            
+            .address {
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
