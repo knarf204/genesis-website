@@ -6,6 +6,70 @@
     <link rel="icon" href="genesis-photos/favicon.jpg" type="image/x-icon">
     <title>genesis</title>
     <style>
+        /* Loader Styles */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(91, 91, 155, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+        }
+
+        #loader-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+            animation: blink 2s infinite;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(214, 214, 230, 0.3);
+            border-radius: 50%;
+            border-top-color: rgba(214, 214, 230, 0.95);
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            color: rgba(214, 214, 230, 0.95);
+            font-size: 18px;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Hide content until loaded */
+        body.loading {
+            overflow: hidden;
+        }
+        
+        body.loading .page-content {
+            opacity: 0;
+        }
+        
+        .page-content {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+        }
+
+        /* Original styles */
         body{
             background: url(genesis-photos/young-man-engineer-making-program-analyses.jpg) no-repeat center center/cover;
             margin: 0;
@@ -483,168 +547,234 @@
         }
     </style>
 </head>
-<body>
-    <!-- Header Section -->
-    <header>
-        <div class="header-container">
-            <div class="header-content">
-                <h1>Origin of innovation</h1>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <img src="genesis-photos/loggo.png" alt="">
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">contact</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        <div class="container2">
-            <div class="section-title">
-                <h2>Recent Projects</h2>
-            </div>
-            
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-slider">
-                            <div class="slider-container">
-                                <div class="slider-item">
-                                    <img src="genesis-photos/projects-photos/WhatsApp Image 2025-03-21 at 07.28.16_34ad9fe0.jpg" alt="Enterprise Network Infrastructure 1">
-                                </div>
-                                <div class="slider-item">
-                                    <img src="genesis-photos/projects-photos/pexels-field-engineer-147254-442150.jpg" alt="Enterprise Network Infrastructure 2">
-                                </div>
-                                <div class="slider-item">
-                                    <img src="genesis-photos/projects-photos/WhatsApp Image 2025-03-21 at 07.28.17_1305627c.jpg" alt="Enterprise Network Infrastructure 3">
-                                </div>
-                            </div>
-                            <div class="slider-controls">
-                                <div class="slider-dot active" data-index="0"></div>
-                                <div class="slider-dot" data-index="1"></div>
-                                <div class="slider-dot" data-index="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Enterprise Network Infrastructure</h3>
-                        <p>Implemented a network infrastructure overhaul in Chipata, Zambia, featuring enhanced security measures, cloud integration, and expanded capacity to support over 500 users</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Cisco</span>
-                            <span class="tech-tag">Cloud</span>
-                            <span class="tech-tag">Security</span>
-                        </div>
-                        <a href="project-1.html" class="project-link">View Details</a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-slider">
-                            <div class="slider-container">
-                                <div class="slider-item">
-                                    <img src="genesis-photos/projects-photos/close-up-fingerprint-reader.jpg" alt="biometric-Powered Customer Support System 1">
-                                </div>
-                                <div class="slider-item">
-                                    <img src="genesis-photos/projects-photos/retinal-biometrics-technology-with-man-s-eye-digital-remix.jpg" alt="biometric-Powered Customer Support System 2">
-                                </div>
-                                <div class="slider-item">
-                                    <img src="genesis-photos/projects-photos/young-woman-contactless-pays-public-transport.jpg" alt="biometric-Powered Customer Support System 3">
-                                </div>
-                            </div>
-                            <div class="slider-controls">
-                                <div class="slider-dot active" data-index="0"></div>
-                                <div class="slider-dot" data-index="1"></div>
-                                <div class="slider-dot" data-index="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Biometric Access Control Installation Service</h3>
-                        <p>Door installation expert specializing in biometric security systems. Successfully implemented fingerprint and facial recognition access solutions that reduced unauthorized entries by 68% and improved security satisfaction by 47% for a corporate client. Expert in integrating multi-factor authentication with existing security infrastructure for seamless transition while maintaining comprehensive access control.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Biometrics</span>
-                            <span class="tech-tag">Access Control</span>
-                            <span class="tech-tag">Security Systems</span>
-                        </div>
-                        <a href="#" class="project-link">View Details</a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="image-slider">
-                            <div class="slider-container">
-                                <div class="slider-item">
-                                    <img src="genesis-photos/projects-photos/Image3.jpg" alt="Blockchain Supply Chain Solution 1">
-                                </div>
-                                <div class="slider-item">
-                                    <img src="genesis-photos/projects-photos/service-428538_1280.jpg" alt="Blockchain Supply Chain Solution 2">
-                                </div>
-                                <div class="slider-item">
-                                    <img src="genesis-photos/projects-photos/hardware-3509893_1280.jpg" alt="Blockchain Supply Chain Solution 3">
-                                </div>
-                            </div>
-                            <div class="slider-controls">
-                                <div class="slider-dot active" data-index="0"></div>
-                                <div class="slider-dot" data-index="1"></div>
-                                <div class="slider-dot" data-index="2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>IT Hardware and Accessory Distribution</h3>
-                        <ul class="project-services">
-                            <li>Comprehensive hardware procurement</li>
-                            <li>Enterprise-grade computing equipment</li>
-                            <li>Networking hardware (routers, switches, servers)</li>
-                            <li>Desktop and laptop systems</li>
-                            <li>Peripheral devices and accessories</li>
-                            <li>Multi-brand product portfolio</li>
-                            <li>Competitive pricing and bulk purchase options</li>
-                        </ul>
-                    </div>
-                        <a href="#" class="project-link">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<body class="loading">
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <img id="loader-logo" src="genesis-photos/loggo.png" alt="Genesis Logo">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Origin of Innovation</div>
     </div>
-    
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h4>Genesis</h4>
-                    <p>Origin of Innovation</p>
-                    <p>Creating tomorrow's technology today</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="contact.html">Contact Us</a>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <!-- Header Section -->
+        <header>
+            <div class="header-container">
+                <div class="header-content">
+                    <h1>Origin of innovation</h1>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Genesis. All rights reserved.</p>
+        </header>
+
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="genesis-photos/loggo.png" alt="">
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="container2">
+                <div class="section-title">
+                    <h2>Recent Projects</h2>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="image-slider">
+                                <div class="slider-container">
+                                    <div class="slider-item">
+                                        <img src="genesis-photos/projects-photos/WhatsApp Image 2025-03-21 at 07.28.16_34ad9fe0.jpg" alt="Enterprise Network Infrastructure 1">
+                                    </div>
+                                    <div class="slider-item">
+                                        <img src="genesis-photos/projects-photos/pexels-field-engineer-147254-442150.jpg" alt="Enterprise Network Infrastructure 2">
+                                    </div>
+                                    <div class="slider-item">
+                                        <img src="genesis-photos/projects-photos/WhatsApp Image 2025-03-21 at 07.28.17_1305627c.jpg" alt="Enterprise Network Infrastructure 3">
+                                    </div>
+                                </div>
+                                <div class="slider-controls">
+                                    <div class="slider-dot active" data-index="0"></div>
+                                    <div class="slider-dot" data-index="1"></div>
+                                    <div class="slider-dot" data-index="2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Enterprise Network Infrastructure</h3>
+                            <p>Implemented a network infrastructure overhaul in Chipata, Zambia, featuring enhanced security measures, cloud integration, and expanded capacity to support over 500 users</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Cisco</span>
+                                <span class="tech-tag">Cloud</span>
+                                <span class="tech-tag">Security</span>
+                            </div>
+                            <a href="project-1.html" class="project-link">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="image-slider">
+                                <div class="slider-container">
+                                    <div class="slider-item">
+                                        <img src="genesis-photos/projects-photos/close-up-fingerprint-reader.jpg" alt="biometric-Powered Customer Support System 1">
+                                    </div>
+                                    <div class="slider-item">
+                                        <img src="genesis-photos/projects-photos/retinal-biometrics-technology-with-man-s-eye-digital-remix.jpg" alt="biometric-Powered Customer Support System 2">
+                                    </div>
+                                    <div class="slider-item">
+                                        <img src="genesis-photos/projects-photos/young-woman-contactless-pays-public-transport.jpg" alt="biometric-Powered Customer Support System 3">
+                                    </div>
+                                </div>
+                                <div class="slider-controls">
+                                    <div class="slider-dot active" data-index="0"></div>
+                                    <div class="slider-dot" data-index="1"></div>
+                                    <div class="slider-dot" data-index="2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Biometric Access Control Installation Service</h3>
+                            <p>Door installation expert specializing in biometric security systems. Successfully implemented fingerprint and facial recognition access solutions that reduced unauthorized entries by 68% and improved security satisfaction by 47% for a corporate client. Expert in integrating multi-factor authentication with existing security infrastructure for seamless transition while maintaining comprehensive access control.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Biometrics</span>
+                                <span class="tech-tag">Access Control</span>
+                                <span class="tech-tag">Security Systems</span>
+                            </div>
+                            <a href="#" class="project-link">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="image-slider">
+                                <div class="slider-container">
+                                    <div class="slider-item">
+                                        <img src="genesis-photos/projects-photos/Image3.jpg" alt="Blockchain Supply Chain Solution 1">
+                                    </div>
+                                    <div class="slider-item">
+                                        <img src="genesis-photos/projects-photos/service-428538_1280.jpg" alt="Blockchain Supply Chain Solution 2">
+                                    </div>
+                                    <div class="slider-item">
+                                        <img src="genesis-photos/projects-photos/hardware-3509893_1280.jpg" alt="Blockchain Supply Chain Solution 3">
+                                    </div>
+                                </div>
+                                <div class="slider-controls">
+                                    <div class="slider-dot active" data-index="0"></div>
+                                    <div class="slider-dot" data-index="1"></div>
+                                    <div class="slider-dot" data-index="2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>IT Hardware and Accessory Distribution</h3>
+                            <ul class="project-services">
+                                <li>Comprehensive hardware procurement</li>
+                                <li>Enterprise-grade computing equipment</li>
+                                <li>Networking hardware (routers, switches, servers)</li>
+                                <li>Desktop and laptop systems</li>
+                                <li>Peripheral devices and accessories</li>
+                                <li>Multi-brand product portfolio</li>
+                                <li>Competitive pricing and bulk purchase options</li>
+                            </ul>
+                        </div>
+                            <a href="#" class="project-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+        
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <h4>Genesis</h4>
+                        <p>Origin of Innovation</p>
+                        <p>Creating tomorrow's technology today</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Genesis. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
-    <script src="genesis.js">
+    <script>
+        // Original script from genesis.js can go here
+        
+        // Loader script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate loading time or wait for resources
+            setTimeout(function() {
+                // Hide loader
+                const loader = document.getElementById('loader-wrapper');
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+                
+                // Show content
+                document.body.classList.remove('loading');
+                
+                // Remove loader completely after transition
+                setTimeout(function() {
+                    loader.style.display = 'none';
+                }, 600);
+            }, 2500); // 2.5 seconds loading time - adjust as needed
+        });
+
+        // Image slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = document.querySelectorAll('.image-slider');
+            
+            sliders.forEach(function(slider) {
+                const container = slider.querySelector('.slider-container');
+                const dots = slider.querySelectorAll('.slider-dot');
+                const items = slider.querySelectorAll('.slider-item');
+                const itemWidth = 100;
+                
+                dots.forEach(function(dot, index) {
+                    dot.addEventListener('click', function() {
+                        // Update active dot
+                        slider.querySelector('.slider-dot.active').classList.remove('active');
+                        dot.classList.add('active');
+                        
+                        // Move slider
+                        container.style.transform = `translateX(-${index * itemWidth}%)`;
+                    });
+                });
+                
+                // Auto slide functionality
+                let currentIndex = 0;
+                setInterval(function() {
+                    currentIndex = (currentIndex + 1) % items.length;
+                    
+                    // Update active dot
+                    slider.querySelector('.slider-dot.active').classList.remove('active');
+                    dots[currentIndex].classList.add('active');
+                    
+                    // Move slider
+                    container.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+                }, 5000);
+            });
+        });
     </script>
 </body>
 </html>
