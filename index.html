@@ -719,29 +719,39 @@
     </div>
 
     <script>
-        // Original script from genesis.js can go here
-        
         // Loader script
         document.addEventListener('DOMContentLoaded', function() {
-            // Simulate loading time or wait for resources
-            setTimeout(function() {
-                // Hide loader
+            // Check if loader has been shown before in this session
+            if (!sessionStorage.getItem('loaderShown')) {
+                // Show loader only if it hasn't been shown before
                 const loader = document.getElementById('loader-wrapper');
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
+                loader.style.display = 'flex';
                 
-                // Show content
-                document.body.classList.remove('loading');
-                
-                // Remove loader completely after transition
+                // Simulate loading time or wait for resources
                 setTimeout(function() {
-                    loader.style.display = 'none';
-                }, 600);
-            }, 2500); // 2.5 seconds loading time - adjust as needed
-        });
-
-        // Image slider functionality
-        document.addEventListener('DOMContentLoaded', function() {
+                    // Hide loader
+                    loader.style.opacity = '0';
+                    loader.style.visibility = 'hidden';
+                    
+                    // Show content
+                    document.body.classList.remove('loading');
+                    
+                    // Remove loader completely after transition
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 600);
+                    
+                    // Mark loader as shown for this session
+                    sessionStorage.setItem('loaderShown', 'true');
+                }, 2500); // 2.5 seconds loading time - adjust as needed
+            } else {
+                // If loader has been shown before, hide it immediately
+                const loader = document.getElementById('loader-wrapper');
+                loader.style.display = 'none';
+                document.body.classList.remove('loading');
+            }
+    
+            // Image slider functionality
             const sliders = document.querySelectorAll('.image-slider');
             
             sliders.forEach(function(slider) {
