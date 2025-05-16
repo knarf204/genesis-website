@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="genesis-photos/favicon.jpg" type="image/x-icon">
-    <title>Enterprise Network Infrastructure Project</title>
+    <title>Biometric Security Installation Project</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary-color: #5b5b9b;
-            --secondary-color: #464687;
-            --background-light: #f9f9fb;
+            --primary-color: #4D55CC;
+            --secondary-color: #7A73D1;
+            --accent-color: #21C884;
+            --light-color: #B5ABD5;
+            --background-light: #f8f9fa;
             --text-dark: #333;
         }
 
@@ -25,6 +27,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
+            background-color: var(--background-light);
         }
 
         .project-hero {
@@ -70,7 +73,7 @@
 
         .project-details {
             padding: 50px 20px;
-            background-color: var(--background-light);
+            background-color: white;
         }
 
         .detail-grid {
@@ -102,6 +105,7 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid var(--light-color);
         }
 
         .gallery-image:hover {
@@ -110,8 +114,8 @@
         }
 
         .technical-specs {
-            background: rgba(91, 91, 155, 0.05);
-            border: 1px solid rgba(91, 91, 155, 0.1);
+            background: rgba(77, 85, 204, 0.05);
+            border: 1px solid var(--light-color);
             padding: 25px;
             border-radius: 10px;
         }
@@ -119,7 +123,7 @@
         .spec-item {
             margin-bottom: 15px;
             padding-bottom: 15px;
-            border-bottom: 1px solid rgba(91, 91, 155, 0.2);
+            border-bottom: 1px solid var(--light-color);
         }
 
         .spec-item:last-child {
@@ -136,6 +140,7 @@
             margin-top: 30px;
             transition: all 0.3s ease;
             text-align: center;
+            font-weight: 600;
         }
 
         .back-button:hover {
@@ -151,15 +156,16 @@
 
         .key-features li {
             padding: 10px;
-            background-color: rgba(91, 91, 155, 0.05);
+            background-color: rgba(122, 115, 209, 0.08);
             margin-bottom: 10px;
             border-radius: 5px;
             position: relative;
             padding-left: 30px;
+            border-left: 3px solid var(--accent-color);
         }
 
         .key-features li::before {
-            content: '\f0c1';  /* link icon */
+            content: '\f2f2';  /* fingerprint icon */
             font-family: 'Font Awesome 5 Free';
             position: absolute;
             left: 10px;
@@ -185,11 +191,11 @@
 </head>
 <body>
     <div class="project-hero">
-        <img src="genesis-photos/projects-photos/StockCake-Network Cables Connected_1742898370.jpg" 
-             alt="Network Infrastructure" class="hero-image">
+        <img src="genesis-photos/project-2/rm373batch3-socialmediapost-06.jpg" 
+             alt="Biometric Security Installation" class="hero-image">
         <div class="hero-content">
-            <h1>Enterprise Network Infrastructure</h1>
-            <p>Chipata, Zambia | Completed 2024</p>
+            <h1>Biometric Security Installation</h1>
+            <p>Lusaka, Zambia | Completed 2025</p>
         </div>
     </div>
 
@@ -197,47 +203,56 @@
         <div class="detail-grid">
             <div class="main-content">
                 <h2>Project Overview</h2>
-                <p>Comprehensive network infrastructure modernization for a large-scale enterprise operation, designed to enhance connectivity, security, and operational efficiency.</p>
+                <p>Professional installation and configuration of leading biometric security systems across high-security facilities in Zambia. Our expert team ensures seamless integration of <span style="color: var(--accent-color); font-weight: 600;">industry-standard</span> authentication technology tailored to your specific security requirements.</p>
                 
                 <div class="image-gallery">
-                    <img src="genesis-photos/projects-photos/network-design.jpg"
-                         alt="Network Design" class="gallery-image">
-                    <img src="genesis-photos/projects-photos/server-room.jpg" 
-                         alt="Server Room" class="gallery-image">
-                    <img src="genesis-photos/projects-photos/security-center.jpg" 
-                         alt="Security Center" class="gallery-image">
+                    <img src="genesis-photos/project-2/biometric-gate.jpeg"
+                         alt="Biometric Access Control" class="gallery-image">
+                    <img src="genesis-photos/project-2/biometric-terminal.jpeg" 
+                         alt="Facial Recognition System" class="gallery-image">
+                    <img src="genesis-photos/project-2/facial-recognition.png" 
+                         alt="Biometric Terminal" class="gallery-image">
+                         <img src="genesis-photos/project-2/WhatsApp Image 2025-05-12 at 03.43.44 (1).jpeg" 
+                         alt="Biometric Terminal" class="gallery-image">
                 </div>
 
                 <div class="key-features">
                     <h2>Key Features</h2>
                     <ul>
-                        <li>Multi-layer security architecture with next-gen firewalls</li>
-                        <li>SD-WAN implementation for optimized traffic routing</li>
+                        <li><strong>Multi-modal authentication:</strong> Fingerprint, facial, and iris recognition</li>
+                        <li><strong>Real-time monitoring:</strong> Centralized dashboard with live alerts</li>
+                        <li><strong>Seamless integration:</strong> Compatible with existing security infrastructure</li>
+                        <li><strong>Advanced security:</strong> Anti-spoofing technology and tamper detection</li>
+                        <li><strong>Customizable:</strong> Role-based access controls and detailed reporting</li>
                     </ul>
                 </div>
 
-                <h2>Technical Challenges</h2>
-                <p>The project required seamless migration from legacy systems while maintaining 24/7 operations, ensuring minimal disruption and maximum network reliability.</p>
+                <h2>Technical Implementation</h2>
+                <p>The system was deployed in <span style="color: var(--primary-color);">2 months</span>, featuring our patented technology for rapid enrollment and verification. Special attention was given to accessibility features and failover systems to ensure uninterrupted operation.</p>
             </div>
 
             <div class="technical-specs">
-                <h3>Technical Specifications</h3>
+                <h3 style="color: var(--primary-color);">Technical Specifications</h3>
                 <div class="spec-item">
-                    <h4>Network Capacity</h4>
-                    <p>10Gbps backbone with 40G uplinks</p>
+                    <h4>System Architecture</h4>
+                    <p>Distributed biometric nodes with hardware configurations</p>
                 </div>
                 <div class="spec-item">
-                    <h4>Security Stack</h4>
-                    <p>Cisco Firepower NGFW, IPS/IDS, Zero Trust Architecture</p>
+                    <h4>Authentication Methods</h4>
+                    <p>2D facial recognition, live fingerprint detection</p>
                 </div>
                 <div class="spec-item">
-                    <h4>Cloud Integration</h4>
-                    <p>AWS Hybrid Architecture with Direct Connect</p>
+                    <h4>Database Capacity</h4>
+                    <p>500+ user profiles with encrypted storage</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Response Time</h4>
+                    <p>< 0.8 seconds average verification</p>
                 </div>
             </div>
         </div>
 
-        <div class="text-center">
+        <div style="text-align: center; margin-top: 40px;">
             <a href="index.html" class="back-button">
                 <i class="fas fa-arrow-left"></i> Back to Home
             </a>
@@ -245,7 +260,7 @@
     </div>
 
     <script>
-      
+        // Optional JavaScript can be added here
     </script>
 </body>
 </html>
