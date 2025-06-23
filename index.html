@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="genesis-photos/favicon.jpg" type="image/x-icon">
     <title>genesis</title>
+    <meta name="google-site-verification" content="izl5tla6sJr2Nzp9Bsnn5nBklwLC2PA2r5lY_0ttAA4" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap" rel="stylesheet">  
@@ -20,6 +21,30 @@
         <div class="loader-text">Origin of Innovation</div>
     </div>
 
+    <!-- Social Card -->
+   <div class="card">
+    <span>Social</span>
+    <a class="social-link" href="#" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2">
+        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+      </svg>
+    </a>
+    <a class="social-link" href="#" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#E4405F">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+    </a>
+    <a class="social-link" href="#" aria-label="LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0A66C2">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    </a>
+    <a class="social-link" href="#" aria-label="Email">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#EA4335">
+        <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+      </svg>
+    </a>
+</div>
     <!-- Page Content -->
     <div class="page-content">
         <!-- Header Section -->
@@ -39,8 +64,14 @@
                 <nav>
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                       <li class="dropdown">
+  <a href="">About us <i class="fas fa-chevron-down"></i></a>
+  <ul class="dropdown-menu">
+    <li><a href="about.html">About Genesis Office Systems</a></li>
+    <li><a href="about-enterprise.html">About Genesis Enterprise</a></li>
+    <li><a href="leadership.html">Leadership</a></li>
+  </ul>
+</li>                   <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">contact</a></li>
                     </ul>
                 </nav>
@@ -126,13 +157,13 @@
                             <div class="image-slider">
                                 <div class="slider-container">
                                     <div class="slider-item">
-                                        <img src="genesis-photos/projects-photos/Image3.jpg" alt="Blockchain Supply Chain Solution 1">
+                                        <img src="genesis-photos/projects-photos/Image3.jpg" alt="IT Hardware Solutions 1">
                                     </div>
                                     <div class="slider-item">
-                                        <img src="genesis-photos/projects-photos/service-428538_1280.jpg" alt="Blockchain Supply Chain Solution 2">
+                                        <img src="genesis-photos/projects-photos/service-428538_1280.jpg" alt="IT Hardware Solutions 2">
                                     </div>
                                     <div class="slider-item">
-                                        <img src="genesis-photos/projects-photos/hardware-3509893_1280.jpg" alt="Blockchain Supply Chain Solution 3">
+                                        <img src="genesis-photos/projects-photos/hardware-3509893_1280.jpg" alt="IT Hardware Solutions 3">
                                     </div>
                                 </div>
                                 <div class="slider-controls">
@@ -143,17 +174,13 @@
                             </div>
                         </div>
                         <div class="project-info">
-                            <h3>IT Hardware and Accessory Distribution</h3>
-                            <ul class="project-services">
-                                <li>Comprehensive hardware procurement</li>
-                                <li>Enterprise-grade computing equipment</li>
-                                <li>Networking hardware (routers, switches, servers)</li>
-                                <li>Desktop and laptop systems</li>
-                                <li>Peripheral devices and accessories</li>
-                                <li>Multi-brand product portfolio</li>
-                                <li>Competitive pricing and bulk purchase options</li>
-                            </ul>
-                        </div>
+                            <h3>IT Hardware Solutions & Supply Chain</h3>
+                            <p>Professional IT hardware procurement and distribution services, specializing in enterprise-grade equipment solutions. We provide comprehensive technology infrastructure support including servers, networking equipment, workstations, and peripherals. Our supply chain management ensures reliable delivery of quality hardware from trusted manufacturers, supporting businesses with scalable technology solutions that drive productivity and growth.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Hardware</span>
+                                <span class="tech-tag">Supply Chain</span>
+                                <span class="tech-tag">Enterprise</span>
+                            </div>
                             <a href="#" class="project-link">View Details</a>
                         </div>
                     </div>
@@ -182,142 +209,6 @@
             </div>
         </footer>
     </div>
-
-    <script>document.addEventListener('DOMContentLoaded', () => {
-        // Loader functionality - only show on first website visit ever
-        const loader = document.getElementById('loader-wrapper');
-        
-        if (loader) {
-            // Check if this is the user's first visit (using localStorage for persistence)
-            const isFirstVisit = !localStorage.getItem('loaderShown');
-            
-            if (isFirstVisit) {
-                // First visit to the website, show loader
-                loader.style.display = 'flex';
-                document.body.classList.add('loading');
-                
-                setTimeout(() => {
-                    loader.style.opacity = '0';
-                    loader.style.visibility = 'hidden';
-                    
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                        document.body.classList.remove('loading');
-                    }, 600);
-                    
-                    // Mark loader as shown permanently
-                    localStorage.setItem('loaderShown', 'true');
-                }, 2500);
-            } else {
-                // Not first visit, hide loader immediately
-                loader.style.display = 'none';
-                document.body.classList.remove('loading');
-            }
-        } else {
-            document.body.classList.remove('loading');
-        }
-    
-        // Initialize all image sliders
-        const sliders = document.querySelectorAll('.image-slider');
-        
-        sliders.forEach(slider => {
-            const container = slider.querySelector('.slider-container');
-            const dots = slider.querySelectorAll('.slider-dot');
-            const items = slider.querySelectorAll('.slider-item');
-            let currentIndex = 0;
-            let autoSlideInterval;
-            
-            // Update slider position
-            const updateSlider = (index) => {
-                container.style.transform = `translateX(-${index * 100}%)`;
-                dots.forEach(dot => dot.classList.remove('active'));
-                dots[index].classList.add('active');
-            };
-            
-            // Reset auto-slide timer
-            const resetAutoSlide = () => {
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % dots.length;
-                    updateSlider(currentIndex);
-                }, 5000);
-            };
-            
-            // Handle dot clicks
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateSlider(currentIndex);
-                    resetAutoSlide();
-                });
-            });
-            
-            // Initialize auto-slide
-            resetAutoSlide();
-            
-            // Pause auto-slide on hover
-            slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-            
-            // Resume auto-slide on mouse leave
-            slider.addEventListener('mouseleave', resetAutoSlide);
-        });
-        
-        // Gallery image lightbox functionality
-        document.querySelectorAll('.gallery-image').forEach(image => {
-            image.addEventListener('click', () => {
-                const overlay = document.createElement('div');
-                overlay.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100vw;
-                    height: 100vh;
-                    background-color: rgba(0,0,0,0.9);
-                    z-index: 1000;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    cursor: zoom-out;
-                    animation: fadeIn 0.3s ease;
-                `;
-                
-                const enlargedImg = new Image();
-                enlargedImg.src = image.src;
-                enlargedImg.style.cssText = `
-                    max-width: 90vw;
-                    max-height: 90vh;
-                    object-fit: contain;
-                    border-radius: 10px;
-                    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-                `;
-                
-                // Add fadeOut animation style if not already present
-                if (!document.querySelector('#lightbox-animations')) {
-                    const style = document.createElement('style');
-                    style.id = 'lightbox-animations';
-                    style.textContent = `
-                        @keyframes fadeIn {
-                            from { opacity: 0; }
-                            to { opacity: 1; }
-                        }
-                        @keyframes fadeOut {
-                            from { opacity: 1; }
-                            to { opacity: 0; }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                }
-                
-                overlay.appendChild(enlargedImg);
-                document.body.appendChild(overlay);
-                
-                overlay.addEventListener('click', () => {
-                    overlay.style.animation = 'fadeOut 0.3s ease';
-                    overlay.addEventListener('animationend', () => overlay.remove());
-                });
-            });
-        });
-    });
-    </script>
+    <script src="genesis.js"></script>
 </body>
 </html>

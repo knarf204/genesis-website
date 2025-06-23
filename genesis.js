@@ -1,21 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all image sliders
-    const sliders = document.querySelectorAll('.image-slider');
+    // ===============================
+    // Loader: Show only on first visit
+    // ===============================
+    const loader = document.getElementById('loader-wrapper');
     
+    if (loader) {
+        const isFirstVisit = !localStorage.getItem('loaderShown');
+
+        if (isFirstVisit) {
+            loader.style.display = 'flex';
+            document.body.classList.add('loading');
+
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    document.body.classList.remove('loading');
+                }, 600);
+
+                localStorage.setItem('loaderShown', 'true');
+            }, 2500);
+        } else {
+            loader.style.display = 'none';
+            document.body.classList.remove('loading');
+        }
+    } else {
+        document.body.classList.remove('loading');
+    }
+
+    // ===============================
+    // Mobile Menu Toggle
+    // ===============================
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // ===============================
+    // Image Sliders
+    // ===============================
+    const sliders = document.querySelectorAll('.image-slider');
+
     sliders.forEach(slider => {
         const container = slider.querySelector('.slider-container');
         const dots = slider.querySelectorAll('.slider-dot');
+        const items = slider.querySelectorAll('.slider-item');
+
         let currentIndex = 0;
         let autoSlideInterval;
-        
-        // Update slider position
+
         const updateSlider = (index) => {
             container.style.transform = `translateX(-${index * 100}%)`;
             dots.forEach(dot => dot.classList.remove('active'));
             dots[index].classList.add('active');
         };
-        
-        // Reset auto-slide timer
+
         const resetAutoSlide = () => {
             clearInterval(autoSlideInterval);
             autoSlideInterval = setInterval(() => {
@@ -23,27 +68,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateSlider(currentIndex);
             }, 5000);
         };
-        
-        // Handle dot clicks
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateSlider(currentIndex);
-                resetAutoSlide();
+
+        if (dots.length > 0 && container) {
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider(currentIndex);
+                    resetAutoSlide();
+                });
             });
-        });
-        
-        // Initialize auto-slide
-        resetAutoSlide();
-        
-        // Pause auto-slide on hover
-        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-        
-        // Resume auto-slide on mouse leave
-        slider.addEventListener('mouseleave', resetAutoSlide);
+
+            resetAutoSlide();
+
+            slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+            slider.addEventListener('mouseleave', resetAutoSlide);
+        }
     });
-    
-    // Gallery image lightbox functionality
+
+    // ===============================
+    // Gallery Image Lightbox
+    // ===============================
     document.querySelectorAll('.gallery-image').forEach(image => {
         image.addEventListener('click', () => {
             const overlay = document.createElement('div');
@@ -61,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursor: zoom-out;
                 animation: fadeIn 0.3s ease;
             `;
-            
+
             const enlargedImg = new Image();
             enlargedImg.src = image.src;
             enlargedImg.style.cssText = `
@@ -71,8 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 border-radius: 10px;
                 box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             `;
-            
-            // Add fadeOut animation style if not already present
+
             if (!document.querySelector('#lightbox-animations')) {
                 const style = document.createElement('style');
                 style.id = 'lightbox-animations';
@@ -88,10 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 document.head.appendChild(style);
             }
-            
+
             overlay.appendChild(enlargedImg);
             document.body.appendChild(overlay);
-            
+
             overlay.addEventListener('click', () => {
                 overlay.style.animation = 'fadeOut 0.3s ease';
                 overlay.addEventListener('animationend', () => overlay.remove());
