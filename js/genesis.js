@@ -4,30 +4,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===============================
     const loader = document.getElementById('loader-wrapper');
     
-    if (loader) {
-        const isFirstVisit = !localStorage.getItem('loaderShown');
+    const pageLogo = document.querySelector('.logo img');
 
-        if (isFirstVisit) {
-            loader.style.display = 'flex';
-            document.body.classList.add('loading');
+    if (loader) {
+        loader.style.display = 'flex';
+        loader.style.opacity = '1';
+        loader.style.visibility = 'visible';
+        document.body.classList.add('loading');
+
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
 
             setTimeout(() => {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
+                loader.style.display = 'none';
+                document.body.classList.remove('loading');
 
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                    document.body.classList.remove('loading');
-                }, 600);
-
-                localStorage.setItem('loaderShown', 'true');
-            }, 2500);
-        } else {
-            loader.style.display = 'none';
-            document.body.classList.remove('loading');
-        }
+                if (pageLogo) {
+                    pageLogo.classList.add('animate-logo');
+                    pageLogo.addEventListener('animationend', () => {
+                        pageLogo.classList.remove('animate-logo');
+                    }, { once: true });
+                }
+            }, 600);
+        }, 2500);
     } else {
         document.body.classList.remove('loading');
+
+        if (pageLogo) {
+            setTimeout(() => {
+                pageLogo.classList.add('animate-logo');
+                pageLogo.addEventListener('animationend', () => {
+                    pageLogo.classList.remove('animate-logo');
+                }, { once: true });
+            }, 300);
+        }
     }
 
     // ===============================
