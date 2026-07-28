@@ -498,7 +498,7 @@ header {
 .hero-content {
     max-width: 680px;
     width: 90%;
-    margin: 50px auto 0;
+    margin: 18px auto 0;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -525,7 +525,7 @@ header {
 
 .hero-content p {
     max-width: 680px;
-    margin: 0 auto 28px;
+    margin: 0 auto 12px;
     font-size: 1.05rem;
     color: rgba(242, 242, 251, 0.88);
     line-height: 1.8;
@@ -569,9 +569,9 @@ header {
 .why-section {
     display: grid;
     grid-template-columns: 280px 1fr;
-    gap: 32px;
+    gap: 28px;
     align-items: start;
-    margin: 60px 0 40px;
+    margin: 28px 0 22px;
 }
 
 .why-card {
@@ -595,6 +595,13 @@ header {
     font-weight: 700;
     background: linear-gradient(135deg, #7A73D1, #5A5CC7);
     border-radius: 20px;
+    transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.why-icon.why-icon-highlight {
+    background: linear-gradient(135deg, #2596ff, #0f6ef0);
+    box-shadow: 0 0 0 16px rgba(37, 150, 255, 0.15);
+    transform: scale(1.05);
 }
 
 .why-card h3 {

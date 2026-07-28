@@ -96,6 +96,91 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    let counterAnimationId = null;
+
+    const startWhyIconCounter = () => {
+        const counter = document.querySelector('.why-icon');
+        if (!counter) return;
+
+        if (counterAnimationId) {
+            cancelAnimationFrame(counterAnimationId);
+            counterAnimationId = null;
+        }
+
+        const start = 1;
+        const end = 20;
+        const duration = 2800;
+        const startTime = performance.now();
+
+        const easeOutQuad = (t) => t * (2 - t);
+
+        const update = (timestamp) => {
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeOutQuad(progress);
+            const currentValue = Math.max(start, Math.round(start + (end - start) * eased));
+
+            counter.textContent = `${currentValue}+`;
+
+            if (progress < 1) {
+                counterAnimationId = requestAnimationFrame(update);
+            } else {
+                counter.classList.add('why-icon-highlight');
+                counterAnimationId = null;
+                setTimeout(() => {
+                    counter.classList.remove('why-icon-highlight');
+                }, 700);
+            }
+        };
+
+        counterAnimationId = requestAnimationFrame(update);
+    };
+
+    const scheduleWhyIconCounter = () => {
+        const counter = document.querySelector('.why-icon');
+        const loader = document.getElementById('loader-wrapper');
+        const delay = loader ? 3200 : 0;
+        let counterStarted = false;
+
+        if (!counter) return;
+        counter.textContent = '1+';
+
+        const resetCounter = () => {
+            counterStarted = false;
+            if (counterAnimationId) {
+                cancelAnimationFrame(counterAnimationId);
+                counterAnimationId = null;
+            }
+            counter.textContent = '1+';
+            counter.classList.remove('why-icon-highlight');
+        };
+
+        const startWhenVisible = () => {
+            if (counterStarted) return;
+            counterStarted = true;
+            startWhyIconCounter();
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    startWhenVisible();
+                } else if (!entry.isIntersecting) {
+                    resetCounter();
+                }
+            });
+        }, {
+            threshold: 0.5,
+            rootMargin: '0px 0px -20% 0px'
+        });
+
+        setTimeout(() => {
+            observer.observe(counter);
+        }, delay);
+    };
+
+    scheduleWhyIconCounter();
+
     // ===============================
     // Gallery Image Lightbox
     // ===============================
